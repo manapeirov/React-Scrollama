@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* body {
   background-color: #282c34;
-  min-height: 100vh;
+} */
+
+/* Position absolute on the step divs and position sticky on the sticky white div does not work together, if we want the scroller step divs to 
+be side by side with the sticky white div, have to make the scrollama container display: flex and wrap/group the step divs together, placing them side by side with the 
+sticky white div.
+alternatively, can leave the step divs unwrapped/ungrouped, and set their position: relative allowing the position: sticky of sticky white div to work, 
+but in this case these will not be positioned side by side with the sticky div, the first div will be lower down the browser window, it starts after the sticky white div
+as it is not position absolute.
+
+The other solution is to make the step divs postion: absolute and then give the overall wrapper container (scrollama) a height, that will allow
+position: sticky to work. */
+
+.scrollama {
+  background-color: #282c34;
   display: flex;
-  flex-direction: column;
+  padding: 40vh 5vw 70vh;
+  justify-content: space-between;
+}
+
+.scroller {
+  flex-basis: 30%;
+}
+
+.step {
+  padding: 500px 0;
+  margin: 0 auto 3rem auto;
+}
+
+.yellow-div {
+  background-color: yellow;
+}
+
+.green-div {
+  background-color: #94cea5;
+}
+
+.pink-div {
+  background-color: pink;
+}
+
+/* .text-div {
+  margin: 50vh 0;
+  border: 1px solid gray;
+} */
+
+.sticky-white-div {
+  top: 20vh;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  position: sticky;
+  flex-basis: 60%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: white;
+  margin: 0 0 3rem auto;
 }
